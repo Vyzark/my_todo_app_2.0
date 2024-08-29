@@ -1,0 +1,98 @@
+@use "../../../sass/mixins/mixins" as mix
+@use "sass:color"
+
+#container
+    all: unset
+    position: sticky
+    top: 0
+    width: 100%
+
+.navbar
+    display: flex
+    gap: 20px
+    padding: 0px auto
+    margin: 0
+    overflow: hidden
+    background: var(--nav-gradient)
+    border-top: 0.1px solid #89080a50
+    border-bottom: 0.1px solid #89080a50
+    box-shadow: 1px 1px 15px 10px rgba(0,0,0,0.20)
+
+.logo-container
+    width: fit-content
+
+.sm-group
+    display: flex
+    justify-content: space-between
+
+
+.logo
+    color: var(--text-color)
+    text-align: center
+    text-decoration: none
+    font-size: mix.$font-size * 1.5
+
+.logo::after
+    content: ''
+    display: block
+    width: 0%
+    height: 2px
+    background: var(--text-color)
+    transition: all 0.8s ease-out
+
+.logo:hover::after
+    width: 100%
+    transition: all 0.8s ease-out
+
+#nav-icon-list
+    display: flex
+    gap: 20px
+
+    .nav-icon
+        cursor: pointer
+    .nav-icon:hover
+        transform: scale(1.2)
+
+.nav-icon
+    display: flex
+    justify-content: center
+    align-items: center
+
+.nav-icon-text
+    align-content: center
+    opacity: 0
+    color: var(--text-color)
+    margin-top: 5px
+    transition: 0.95s ease
+
+.nav-icon:hover + .nav-icon-text
+    opacity: 1
+    transition: 0.95s ease
+
+button.btn
+    padding: 0.35rem
+    width: 3.25rem
+
+.fa-sun
+    color: color.scale(mix.$mid-green, $lightness: 10%)
+button.btn:hover .fa-sun
+    color: color.scale(mix.$light-green, $lightness: 40%)
+
+.fa-moon
+    color: color.scale(mix.$dark-grey, $lightness: 10%)
+button.btn:hover .fa-moon
+    color: color.scale(mix.$light-grey, $blackness: 30%)
+
+.toggler.show
+    display: block
+
+.toggler.hide
+    display: none
+
+@media (width < mix.$md)
+    .nav-icon-text
+        font-size: mix.$font-size * 0.9
+
+@media (width < mix.$sm)
+    .nav-icon-text
+        display: none

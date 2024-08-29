@@ -1,0 +1,52 @@
+@forward "../partials/variables"
+@use "../partials/variables" as v
+@use "sass:color"
+
+=theme-light()
+  --bg-color: #{v.$main-bg-color}
+  --text-color: #{v.$text-color}
+  --nav-gradient: #{linear-gradient(-150deg, v.$lighter-green 22%, v.$light-green 32%, #4f593c 68%)}
+  --stroke-color: #{white}
+  --checkbox-fill-color: #{#607928}
+  --add-input-color: #{transparentize(v.$light-green, 0.7)}
+  --add-button-effect: #{color.scale(v.$mid-green, $lightness: 50%)}
+  --task-item-color: #{transparentize(v.$mid-green, 0.2)}
+
+=theme-dark()
+  --bg-color: #{v.$inverted-main-bg-color}
+  --text-color: #{v.$inverted-text-color}
+  --nav-gradient: #{linear-gradient(-150deg, v.$inverted-lighter-green 22%, v.$inverted-light-green 32%, invert(#4f593c) 68%)}
+  --stroke-color: #{black}
+  --checkbox-fill-color: #{invert(#607928)}
+  --add-input-color: #{transparentize(v.$inverted-light-green, 0.7)}
+  --add-button-effect: #{v.$inverted-mid-green}
+  --task-item-color: #{transparentize(v.$inverted-mid-green, 0.2)}
+
+
+=reset-list
+  margin: 0
+  padding: 0
+  list-style: none
+  display: flex
+  flex-direction: column
+  gap: v.$gap
+
+=button-group
+  display: flex
+  gap: v.$gap
+
+=task-button
+  color: var(--text-color)
+  text-decoration: none
+  font-size: v.$font-size * 1.5
+  border: none
+  background: none
+  font-weight: 600
+
+=task-button-effect
+  content: ''
+  width: 0%
+  height: 4px
+  background: white
+  display: block
+  transition: 0.5s

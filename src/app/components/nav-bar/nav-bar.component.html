@@ -1,0 +1,58 @@
+<div id="container">
+    <nav class="navbar row">
+        <div class="col-12 col-sm offset-md-1 sm-group">
+            <div class="logo-container">
+                <a class="logo" href="https://github.com/Vyzark">André Candeloro</a>
+            </div>
+            <div class="d-block d-sm-none theme-button">
+                <button class="btn" (click)="changeTheme()">
+                    <span class="toggler" [class]="dark ? 'hide':'show'">
+                        <i class="fa-solid fa-moon fa-2x"></i>
+                    </span>
+                    <span class="toggler" [class]="dark ? 'show':'hide'">
+                        <i class="fa-solid fa-sun fa-2x"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-10 col-sm">
+            <ul id="nav-icon-list">
+
+                <li class="nav-icon">
+                    <a href="https://github.com/Vyzark">
+                        <i class="fa-brands fa-github fa-2x" style="color: #0b111d"></i>
+                    </a>
+                </li>
+                <span class="nav-icon-text">Check my projects</span>
+
+                <li class="nav-icon">
+                    <a href="https://www.linkedin.com/in/andre-fullstack-dev/">
+                        <i class="fa-brands fa-linkedin fa-2x"></i>
+                    </a>
+                </li>
+                <span class="nav-icon-text">More about me</span>
+
+                <li class="nav-icon">
+                    <a href="mailto:candeloro95@gmail.com">
+                        <i class="fa-solid fa-envelope fa-2x" style="color: #e2e2ee"></i>
+                    </a>
+                </li>
+                <span class="nav-icon-text">Contact me</span>
+
+            </ul>
+
+        </div>
+
+        <div class="col d-none d-sm-block theme-button">
+            <button class="btn" (click)="changeTheme()">
+                <span class="toggler" [class]="dark ? 'hide':'show'">
+                    <i class="fa-solid fa-moon fa-2x"></i>
+                </span>
+                <span class="toggler" [class]="dark ? 'show':'hide'">
+                    <i class="fa-solid fa-sun fa-2x"></i>
+                </span>
+            </button>
+        </div>
+    </nav>
+</div>

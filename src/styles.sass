@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@use "./sass/main.sass"
+@use "./app/components/nav-bar/nav-bar.component"
+@use "./app/components/to-do-list/to-do-list.component"
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap')
+
+body
+    +main.theme-light()
+
+    font-family: main.$main-font
+    background-color: var(--bg-color)
+    color: var(--text-color)
+
+body.dark
+    +main.theme-dark()
+
+    font-family: main.$main-font
+    background-color: var(--bg-color)
+    color: var(--text-color)

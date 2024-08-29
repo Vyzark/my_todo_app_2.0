@@ -1,0 +1,66 @@
+<div class="wrapper">
+    <div class="task-counter">
+        <p>Completed tasks: {{ completedTasks }} / {{ tasks.length }}</p>
+    </div>
+    <div class="todo-list">
+        <div class="button-group">
+            <div class="add-task-button-container">
+                <input [(ngModel)]="taskContent" #taskInput class="shadow add-task-input" type="text"
+                    placeholder="Add a new task" />
+                <button (click)="addTask(taskInput.value)" class="add-task-button">Add
+                </button>
+            </div>
+            <div class="delete-button-group">
+                <div class="button-container">
+                    <button (click)="deleteCompleted()" class="delete-task-button">Delete Completed
+                    </button>
+                </div>
+                <div class="button-container">
+                    <button (click)="deleteAllTasks()" class="delete-task-button">
+                        Delete All
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="task-list-container">
+            <ul class="task-list">
+                @for (task of tasks; track $index) {
+                    <!-- TODO: ADD DRAG & DROP FUNCTIONALITY -->
+                    <li class="shadow task-item" [class]="{'completed': task.completed}">
+                        <div class="checkbox-container">
+                            <input [id]="'input' + $index" name="checkbox" type="checkbox"
+                                [checked]="task.completed" (change)="toggleTask($index)">
+                            <label class="terms-label" [for]="'input' + $index">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 200 200" class="checkbox-svg">
+                                    <mask fill="white" id="path-1-inside-1_476_5-37">
+                                        <rect height="200" width="200"></rect>
+                                    </mask>
+                                    <rect mask="url(#path-1-inside-1_476_5-37)" stroke-width="40"
+                                        class="checkbox-box" height="200" width="200"></rect>
+                                    <path stroke-width="15" d="M52 111.018L76.9867 136L149 64"
+                                        class="checkbox-tick"></path>
+                                </svg>
+                            </label>
+                            <span class="label-text">{{ task.content }}</span>
+                        </div>
+
+                        <div>
+                            <button (click)="removeTask($index)" class="noselect" id="del-button">
+                                <span class="text">Delete</span>
+                                <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
+                                    </path>
+                                </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
